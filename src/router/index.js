@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import VueAnalytics from "vue-analytics";
+// import VueAnalytics from "vue-analytics";
 import Home from "@/views/Home.vue";
 
 Vue.use(VueRouter);
@@ -17,9 +17,9 @@ const router = new VueRouter({
   ]
 });
 
-Vue.use(VueAnalytics, {
-  id: "UA-527778-21",
-  router
-});
+// Vue.use(VueAnalytics, {
+//   id: "UA-527778-21",
+//   router
+// });
 
 export default router;

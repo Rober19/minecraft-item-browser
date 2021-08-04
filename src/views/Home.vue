@@ -12,42 +12,41 @@
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar.vue";
-import ResultView from "@/components/ResultView.vue";
-import db from "@/database";
+import Sidebar from '@/components/Sidebar.vue';
+import ResultView from '@/components/ResultView.vue';
+import db from '@/database';
 
 export default {
   components: {
     Sidebar,
-    ResultView
+    ResultView,
   },
   data() {
     return {
       results: [],
-      selectedItem: undefined
+      selectedItem: undefined,
     };
   },
   methods: {
-    updateQuery(query = "") {
-      if (query.length) {
+    updateQuery(query = '') {
+      if (typeof query == 'string') {
         let self = this;
-        let regex = new RegExp("", "i");
-
-        console.log(db.items);
+        let regex = new RegExp(query, 'i');
 
         db.items
-          .filter(item => regex.test(item.displayName))
+          .filter((item) => regex.test(item.displayName))
           .toArray()
           .then(function(results) {
             self.results = results;
+            console.log(results);
           });
       } else {
         this.results = [];
       }
-    }
+    },
   },
   watch: {
-    "$route.params": {
+    '$route.params': {
       immediate: true,
       handler(routeParams) {
         let self = this;
@@ -56,7 +55,7 @@ export default {
         }
 
         db.items
-          .where("name")
+          .where('name')
           .equals(routeParams.item_name)
           .first()
           .then(function(item) {
@@ -64,8 +63,8 @@ export default {
               self.selectedItem = item;
             }
           });
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

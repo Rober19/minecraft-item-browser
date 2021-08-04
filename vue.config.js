@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: "/minecraft-item-browser/",
+  publicPath: "/",
   pages: {
     index: {
       entry: "src/main.js",
