@@ -1,8 +1,12 @@
 <template>
-  <div class="container">
+  <div class="" style="padding: 20px;">
     <div class="row">
-      <Sidebar v-on:runSearch="updateQuery" :results="results" />
-      <ResultView :item="selectedItem" />
+      <div class="col-md-4">
+        <Sidebar v-on:runSearch="updateQuery" :results="results" />
+      </div>
+      <div class="col-md-8">
+        <ResultView :item="selectedItem" />
+      </div>
     </div>
   </div>
 </template>
@@ -24,14 +28,15 @@ export default {
     };
   },
   methods: {
-    updateQuery(query) {
+    updateQuery(query = "") {
       if (query.length) {
         let self = this;
-        let regex = new RegExp(query, "i");
+        let regex = new RegExp("", "i");
+
+        console.log(db.items);
 
         db.items
           .filter(item => regex.test(item.displayName))
-          .limit(10)
           .toArray()
           .then(function(results) {
             self.results = results;

@@ -20,7 +20,12 @@ $input-focus-border-color: #ced4da; // $grey-400, but variables dont exist yet..
 @import "@/components/Item.scss";
 
 @media (prefers-color-scheme: dark) {
+  html {
+    height: 100%;
+  }
   body {
+    max-height: 100%;
+    margin: 0;
     background-color: theme-color("dark");
     color: theme-color("light");
   }

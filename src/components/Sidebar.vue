@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-3 mb-4">
+  <div class="">
     <h4>Search</h4>
     <div class="form-group">
       <div class="input-group">
@@ -16,21 +16,24 @@
           placeholder="Search"
         />
       </div>
+      <button class="btn btn-danger mt-4" @click="resetDb">
+        Clear Cached DB
+      </button>
     </div>
 
     <h4>Results</h4>
-    <div class="list-group" id="search_results">
-      <Item
-        v-for="item in results"
-        :key="item.id"
-        :item="item"
-        v-bind:show-name="true"
-        class="list-group-item"
-      />
+    <div class="list-group">
+      <div class="row">
+        <div
+          v-for="item in results"
+          :key="item.id"
+          class=""
+          style="padding: 10px"
+        >
+          <Item :item="item" class="" />
+        </div>
+      </div>
     </div>
-    <button class="btn btn-danger mt-4" @click="resetDb">
-      Clear Cached DB
-    </button>
   </div>
 </template>
 

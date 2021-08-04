@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item" class="col-md-9">
+  <div v-if="item">
     <h1 class="mb-5">{{ item.displayName }}</h1>
 
     <div v-if="created_by.length" class="mb-4">
