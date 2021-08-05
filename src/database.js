@@ -21,7 +21,7 @@ db.on("ready", function() {
     } else {
       console.log("Database is empty. Populating from ajax call...");
       let itemsPromise = new Promise(function(resolve, reject) {
-        $.ajax("/minecraft-item-browser/js/items.json", {
+        $.ajax("/js/items.json", {
           type: "get",
           dataType: "json",
           error: function(xhr, textStatus) {
@@ -35,7 +35,7 @@ db.on("ready", function() {
         });
       });
       let recipesPromise = new Promise(function(resolve, reject) {
-        $.ajax("/minecraft-item-browser/js/recipes.json", {
+        $.ajax("/js/recipes.json", {
           type: "get",
           dataType: "json",
           error: function(xhr, textStatus) {
